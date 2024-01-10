@@ -1,20 +1,23 @@
 // 31
-// function solution(n) {
-//     var answer = '';
-//     for (let i = 1; i <= n; i++) {
-//         i % 2 !== 0 ? answer += "수" : answer += "박" 
-//     }
-//     return answer;
-// }
+function solution(n) {
+    var answer = '';
+    // 홀수일 때 answer = 수, 짝수일 때  answer = 박을 추가함
+    for (let i = 1; i <= n; i++) {
+        i % 2 !== 0 ? answer += "수" : answer += "박" 
+    }
+    return answer;
+}
 
 // 32
-// function solution(a, b) {
-//     var answer =0;
-//     for(let i = 0; i<a.length; i++) {
-//         answer += a[i] * b[i]
-//     }
-//     return answer;
-// }
+function solution(a, b) {
+    var answer =0;
+    // 내적
+    // a, b에서 같은 인덱스 값 곱하고 answer에다 다 더해주기
+    for(let i = 0; i<a.length; i++) {
+        answer += a[i] * b[i]
+    }
+    return answer;
+}
 
 // 33
 // function solution(left, right) {
