@@ -18,15 +18,30 @@
 // 자신이 겹치지 않는 모든 번호 쌍의 덧셈을 하면 될 것 같다.
 // 앞의 수의 +1 부터 number.length 까지의 a, b, c를 만든다.
 // 모든 경우의 수인 a, b, c를 더했을 때 0이 되면 answer의 카운트를 1씩 증가 시킨다.
-function solution(number) {
+// function solution(number) {
+//     var answer = 0;
+//     for(let a = 0; a<number.length; a++) {
+//         for(let b = a+1; b<number.length; b++){
+//             for(let c = b+1; c<number.length; c++) {
+//                 if(number[a] + number[b] + number[c]===0){
+//                     answer++
+//                 }
+//             }
+//         }
+//     }
+//     return answer;
+// }
+
+// 43
+// 0부터 t.length만큼 반복시켜 모든 경우의 수를 뽑아내며 아래와 같은 조건을 준다.
+// substr를 이용해 t에서 p의 길이와 같은 문자열이며
+// 그 값들이 p보다 작을 때 answer의 카운트를 늘린다.
+
+function solution(t, p) {
     var answer = 0;
-    for(let a = 0; a<number.length; a++) {
-        for(let b = a+1; b<number.length; b++){
-            for(let c = b+1; c<number.length; c++) {
-                if(number[a] + number[b] + number[c]===0){
-                    answer++
-                }
-            }
+    for (let i = 0; i<t.length; i++) {
+        if(t.substr(i, p.length).length === p.length && t.substr(i, p.length) <= p){
+            answer++
         }
     }
     return answer;
