@@ -37,12 +37,34 @@
 // substr를 이용해 t에서 p의 길이와 같은 문자열이며
 // 그 값들이 p보다 작을 때 answer의 카운트를 늘린다.
 
-function solution(t, p) {
-    var answer = 0;
-    for (let i = 0; i<t.length; i++) {
-        if(t.substr(i, p.length).length === p.length && t.substr(i, p.length) <= p){
-            answer++
-        }
-    }
+// function solution(t, p) {
+//     var answer = 0;
+//     for (let i = 0; i<t.length; i++) {
+//         if(t.substr(i, p.length).length === p.length && t.substr(i, p.length) <= p){
+//             answer++
+//         }
+//     }
+//     return answer;
+// }
+
+
+// 44
+// 예시를 보니 큰 값들 중에 최대값과 작은 값들 중에 최대 값을 곱하면 최소 지갑의 넓이가 나올 듯 하다.
+// 2차원 배열 sizes를 sort를 통해 내림 차순으로 만들어 push 각각 0번째 배열 = a, 1번째 배열 = b를 만든다.
+// 각 a, b의 최대값을 구하기 위해 2차원 배열을 전개연산자를 사용 후 Math.max를 사용
+// 두 값을 곱해 넓이를 구한다.
+
+function solution(sizes) {
+    
+    var a = []
+    var b = []
+    
+    sizes.forEach((v)=>{
+        v.sort((x, y) => y - x)
+        a.push(v[0])
+        b.push(v[1])
+    })
+
+    answer = Math.max(...a) * Math.max(...b);
     return answer;
 }
