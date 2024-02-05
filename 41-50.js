@@ -54,17 +54,80 @@
 // 각 a, b의 최대값을 구하기 위해 2차원 배열을 전개연산자를 사용 후 Math.max를 사용
 // 두 값을 곱해 넓이를 구한다.
 
-function solution(sizes) {
+// function solution(sizes) {
     
-    var a = []
-    var b = []
+//     var a = []
+//     var b = []
     
-    sizes.forEach((v)=>{
-        v.sort((x, y) => y - x)
-        a.push(v[0])
-        b.push(v[1])
-    })
+//     sizes.forEach((v)=>{
+//         v.sort((x, y) => y - x)
+//         a.push(v[0])
+//         b.push(v[1])
+//     })
 
-    answer = Math.max(...a) * Math.max(...b);
+//     answer = Math.max(...a) * Math.max(...b);
+//     return answer;
+// }
+
+// 45
+
+// 46
+
+// 47
+// sort를 써서 문자열을 정렬하면 될 것 같다.
+// strings내부의 단어 strings[i]의 [n]번째 문자를 단어 앞에 붙여 단어를 만든 후 sort를 적용해 정렬한다.
+// 정렬 후 앞에 붙은 문자를 replace를 통해 제거해준다.
+// function solution(strings, n) {
+//     var answer = [];
+//         for (var i = 0; i < strings.length; i++) {
+//         strings[i] = strings[i][n] + strings[i]
+//     }
+//     strings.sort();
+
+//     for (var j = 0; j< strings.length; j++) {
+//         strings[j] = strings[j].replace(strings[j][0], "");
+//         answer.push(strings[j]);
+//     }
+//     console.log(answer);
+//     return answer;
+// }
+
+// 50
+// function solution(s) {
+//     const frontCheck = {}
+//     return s.split('').map((str,idx)=>{
+//         if(frontCheck[str] !== undefined){
+//             // 이미 존재하면 차이를 리턴하고 해당 idx로 갱신 
+//             const frontDistance = idx - frontCheck[str]
+//             frontCheck[str] = idx
+//             return frontDistance
+//         }
+//         else{
+//             // 없을경우 해당 idx로 처음 갱신
+//             frontCheck[str] = idx
+//             return -1
+//         }
+//     })
+// }
+
+// solution("banana")
+
+// 51
+// 사람 수가 두 명이기 때문에 2로 총 음식 갯수를 나눈 정수 값이 먹을 수 있는 음식 수이다.
+// 그럴 때 인덱스의 값이 음식 순서이므로 위의 음식 갯수 수만큼 x에 더해준다.
+// 숫자는 총합으로 더해져서 문자로 바꿔준다.
+// x를 sort로 반대로 정렬시키고 y에 넣어주고 기준점인 0으로 x, y를 합쳐준다. 
+function solution(food) {
+    var answer = '';
+    var x = ''
+        for(let i = 0; i<food.length; i++){
+            for(let q = 0; q<Math.floor(food[i]/2); q++){
+                if(food[i] / 2 >= 1){
+                    x+=String(i)
+                }
+            }
+        }
+    var y = x.split('').sort((a, b) => b - a).join("")
+    answer = [x,"0" , y].join("");
     return answer;
 }
