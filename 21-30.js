@@ -88,4 +88,18 @@
 //     return answer;
 // }
 
-30.
+// 30.
+// length가 홀수일 때 2로 나눈 값의 인덱스가 가운데 문자열을 가리킨다.
+// length가 짝수일 때 2로 나눈 값의 -1 인덱스 + 2로 나눈 값의 인덱스가 가운데 문자열을 가리킨다.
+function solution(s) {
+    var answer = '';
+    for(let i = 0; i<s.length; i++){
+        if(Math.floor(s.length%2)!==0){
+            answer = s[Math.floor(s.length/2)]
+        }else{
+            answer = s[Math.floor(s.length/2)-1] + s[Math.floor(s.length/2)]
+        }
+    }
+    console.log(answer)
+    return answer;
+}

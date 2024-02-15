@@ -69,9 +69,61 @@
 //     return answer;
 // }
 
-// 45
+// 45 *******
+
+// function solution(s, n) {
+//     var answer = '';
+//     let a = ''
+//     let lowCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+//     let upperCase = lowCase.map((value) => value.toUpperCase())
+
+//         for(let sol = 0; sol<s.length; sol++){
+//             if(s[sol] !== "z" || s[sol] !== "Z"){
+//                 for (let lc = 0; lc<lowCase.length; lc++) {
+//                     if(s[sol] === lowCase[lc]) {
+//                         a += lowCase[lc+n]
+//                     }
+//                 }
+//                 for (let uc = 0; uc<upperCase.length; uc++) {
+//                     if(s[sol] === upperCase[uc]) {
+//                         a += upperCase[uc+n]
+//                     }
+//                 }
+//             } 
+//             if (s[sol] === "z" || s[sol] === "Z") {
+//                 // z일 경우
+//                 console.log(s)
+//                 for (let lc = 0; lc<lowCase.length; lc++) {
+//                     if(s[sol] === lowCase[lc]) {
+//                         console.log(lowCase[lc%25+n-1])
+//                         returna += lowCase[lc%25+n-1]
+//                     }
+//                 }
+//                 for (let uc = 0; uc<upperCase.length; uc++) {
+//                     if(s[sol] === upperCase[uc]) {
+//                         a += upperCase[uc%25+n-1]
+//                     }
+//                 }
+//             }   
+//         }
+
+//     return answer;
+// }
+// // solution("AB", 	1)
+// // solution("a B z", 4)
+// solution("z", 4)
 
 // 46
+// function solution(s) {
+//     var answer = "";
+//     let string = ["zero","one","two","three","four","five","six","seven","eight","nine"]
+//     string.map((value, index)=> {
+//         s = s.split(value).join(index)
+//     })
+//     answer = Number(s)
+//     return answer;
+// }
+// solution("one4seveneight")
 
 // 47
 // sort를 써서 문자열을 정렬하면 될 것 같다.
@@ -91,6 +143,40 @@
 //     console.log(answer);
 //     return answer;
 // }
+
+//48
+// commands의 요소를 map을 이용해 접근한다.
+// slice를 이용해 [0]-1요소부터 [1]요소까지를 array로부터 뽑는다.
+// sort로 정렬후 [2]-1요소를 리턴한다.
+// -1들은 문제는 1부터 시작하지만 배열은 0부터 시작하기 때문
+// function solution(array, commands) {
+//     var answer = [];
+//     let a = commands.map((value) => {
+//         return (array.slice(value[0]-1, value[1]).sort((a, b) => a-b))[value[2]-1]
+//     })
+//     var answer = a
+//     return answer;
+// }
+
+//49
+// 자기 자신을 제외한 모든 경우에 수를 더해서 구한다.
+// 중복값을 제거 후 정렬해준다.
+// function solution(numbers) {
+//     var answer = [];
+
+//     for(let i=0; i<numbers.length; i++){
+//         for(let q=i+1; q<numbers.length; q++)
+//         answer.push(numbers[i]+numbers[q])
+//         }
+    
+//     var answer = answer.filter((value, index) => {
+//         return answer.indexOf(value) === index
+//     })
+
+//     answer.sort((a,b)=>a-b)
+//     return answer;
+// }
+
 
 // 50
 // function solution(s) {
@@ -117,17 +203,17 @@
 // 그럴 때 인덱스의 값이 음식 순서이므로 위의 음식 갯수 수만큼 x에 더해준다.
 // 숫자는 총합으로 더해져서 문자로 바꿔준다.
 // x를 sort로 반대로 정렬시키고 y에 넣어주고 기준점인 0으로 x, y를 합쳐준다. 
-function solution(food) {
-    var answer = '';
-    var x = ''
-        for(let i = 0; i<food.length; i++){
-            for(let q = 0; q<Math.floor(food[i]/2); q++){
-                if(food[i] / 2 >= 1){
-                    x+=String(i)
-                }
-            }
-        }
-    var y = x.split('').sort((a, b) => b - a).join("")
-    answer = [x,"0" , y].join("");
-    return answer;
-}
+// function solution(food) {
+//     var answer = '';
+//     var x = ''
+//         for(let i = 0; i<food.length; i++){
+//             for(let q = 0; q<Math.floor(food[i]/2); q++){
+//                 if(food[i] / 2 >= 1){
+//                     x+=String(i)
+//                 }
+//             }
+//         }
+//     var y = x.split('').sort((a, b) => b - a).join("")
+//     answer = [x,"0" , y].join("");
+//     return answer;
+// }
